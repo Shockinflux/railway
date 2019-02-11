@@ -1,0 +1,82 @@
+body{
+    background-color: #000;
+    /* background: linear-gradient(45deg, #f83f37, #001a25) */
+    font-family: "HK Grotesk",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+
+
+#logo {
+    padding: 35px;
+    height: 5%;
+    background-image: url(../img/RailwayLogo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: 10px;
+}
+
+
+
+
+
+#Rlogo {
+    padding: 45px;
+    height: 15%;
+    background-image: url(../img/RailwayLogo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: 10px;
+}
+
+.form{
+    background-color: #fff;
+    padding: 10px;
+    margin-top: 10%;
+}
+
+
+.receipt {
+    background-color: #fff;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.clear{
+    clear: both !important;
+}
+#paySec{
+    height: 85vh;
+    background: linear-gradient(45deg, #37e6f8, #001a25);
+
+    /* background-color: black !important; */
+}
+
+#receiptSec {
+    height: 100vh;
+    /* background-color: black !important; */
+}
+
+#genReceipt{
+    padding: 20px;
+    
+}
+
+#tecketInfo{
+    margin-top: 5%;
+    color: #fff;
+}
+
+#receiptDiv{
+    background: linear-gradient(45deg, #37e6f8, #001a25);
+    height: 100%;
+}
+
+[v-cloak] {
+    display: none;
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" media="screen" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <script src="./js/vue.js"></script>
+
+    <style>
+#intro {
+word-wrap: break-word;
+line-height: 1.6em;
+text-align: justify;
+font-size: 1.2em;
+}
+    </style>
+</head>
+<body>
+    <div class="container-fluid" id="rail">
+        <div class="row">
+            <div class="col-md-11">
+            <div class="" id="logo">
+            
+             </div>
+            </div>
+        </div>
+           
+          <div class="row" id="paySec">
+            <div class="col-md-6 col-sm-6" id="tecketInfo">
+
+                <h2 class="text-center">Railway Ticket Sales</h2>
+                <div class="col-md-9 col-md-offset-2" id="intro">
+                    <p>
+                    Interdum nam inceptos ut. Dictum aenean risus mi mauris ante neque aliquet potenti iaculis. Class class rhoncus,
+                    enim litora sit parturient dictum. Lorem sagittis laoreet a vehicula mattis cras iaculis. Etiam euismod duis tempor
+                    orci porttitor, imperdiet ornare augue tincidunt. Non sem lorem pellentesque libero dui metus. Laoreet donec aptent
+                    posuere dis? Vulputate at dapibus ut conubia aptent vel dictum ornare volutpat dis cursus sodales. Dignissim.
+                </p>    
+                </div>
+                
+
+            </div>
+
+            <div class="col-md-4 col-sm-4 form">
+                <h3 style="text-align:center">Buy Ticket</h3>
+                <form action="">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" v-model="email" name="email" id="email" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Loaction</label>
+                        <select v-model="selected" name="location" id="location" class="form-control" required>
+                            <option disabled value="">Choose Location</option>
+                            <option v-for="(location,index) in locations" value="location.value">{{location.name}}</option>
+                            <!-- <option value="Osodi">Osodi</option> -->
+                        </select>
+                    </div>
+
+                    <div id="cost" v-show = "selected != ''" v-cloak>
+                        <h4 style="text-align:center"> Cost : {{ticket}}</h4>
+                    </div>
+
+                    <div class="form-group">
+                        <button id="buyTicket" class="btn btn-primary form-control" @click.prevent="buyTicket()">Buy Ticket</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+
+          <div class="row" id="receiptSec">
+
+            <div class="col-md-4 col-sm-4" id="genReceipt">
+                <h4 style="text-align:center;color:#fff">Generate Receipt</h4>
+                <form action="">
+                    <div class="form-group">
+                        <label for="ref" style="color:#fff">Transaction Ref</label>
+                        <input type="text" name="ref" id="ref" v-model="ref" class="form-control" required>
+                    </div>
+
+
+                    <div class="form-group" v-show="paid" v-cloak>
+                        <button id="buyTicket" class="btn btn-primary form-control" @click.prevent="generate()">Generate</button>
+                    </div>
+                 </form>
+            </div>
+
+             <div class="col-md-8 col-sm-8" id="receiptDiv">
+                 <div class="row">
+                    <div class="col-md-5 col-md-offset-3 mt-10">
+                        <div class="receipt" v-show="refPut" v-cloak>
+                          <div id="Rlogo">
+
+                         </div>
+
+                         <h3 style="text-align:center" class="text-center">Receipt</h3>
+                         <hr>
+
+                         <table class="table table-striped">
+
+                            <thead>
+                                <tr>
+                                    <th>From</th>
+                                    <th>To</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Lagos</td>
+                                    <td>{{selected}}</td>
+                                    <td>{{ticket}}</td>
+                                </tr>
+                            </tbody>
+
+                         </table>
+                         <br><br>
+
+                         <h5 class="text-right">Transaction REF : {{ref}}</h5>
+
+                         <button class="btn btn-sm btn-success btn-block">Print</button>
+                      </div>
+                    </div>
+                 </div>
+                
+
+             </div>
+          </div>
+    </div>
+    <script src="./js/main.js"></script>
+    
+</body>
+</html>
