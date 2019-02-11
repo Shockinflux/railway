@@ -56,7 +56,7 @@ font-size: 1.2em;
                         <label for="location">Loaction</label>
                         <select v-model="selected" name="location" id="location" class="form-control" required>
                             <option disabled value="">Choose Location</option>
-                            <option v-for="(location,index) in locations" value="location.value">{{location.name}}</option>
+                            <option v-for="(location,index) in locations" :value="location.value">{{location.name}}</option>
                             <!-- <option value="Osodi">Osodi</option> -->
                         </select>
                     </div>
