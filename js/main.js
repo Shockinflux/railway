@@ -7,7 +7,7 @@ let vm = new Vue({
     data : {
         selected : "".toUpperCase(),
         ticket:1000,
-        ref: "".toUpperCase(),
+        ref: "",
         refPut : false,
         paid:false,
         email:'',
