@@ -11,6 +11,7 @@ let vm = new Vue({
         refPut : false,
         paid:false,
         email:'',
+        amount : 1,
         locations: [{
                 name: "Abule Egba",
                 value: "Abule Egba",
@@ -21,7 +22,10 @@ let vm = new Vue({
                 value: "Oshodi",
                 price: 1000
             },
-        ]
+        ],
+        progress : 'initiate payment',
+        initDate: new Date().toDateString(),
+        finDate: new Date().toDateString(),
     },
     methods:{
         generate: function () {

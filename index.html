@@ -16,6 +16,13 @@ line-height: 1.6em;
 text-align: justify;
 font-size: 1.2em;
 }
+
+.form{
+background-color: #fff;
+padding: 10px;
+margin-top: 5%;
+border-radius: 6px;
+}
     </style>
 </head>
 <body>
@@ -46,7 +53,7 @@ font-size: 1.2em;
 
             <div class="col-md-4 col-sm-4 form">
                 <h3 style="text-align:center">Buy Ticket</h3>
-                <form action="">
+                <form action="" v-show = "progress === 'initiate payment'">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" v-model="email" name="email" id="email" class="form-control" required>
@@ -61,14 +68,78 @@ font-size: 1.2em;
                         </select>
                     </div>
 
-                    <div id="cost" v-show = "selected != ''" v-cloak>
-                        <h4 style="text-align:center"> Cost : {{ticket}}</h4>
+                    <div class="form-group">
+                        <label for="amount">Amount of Ticket</label>
+                        <input type="number" v-model.number="amount" name="amount" id="amount" class="form-control" required>
                     </div>
 
+                    <div class="form-inline">
+                        <label for="initDate">From</label>
+                        <input type="date" v-model.lazy="initDate" name="initDate" id="initDate" class="form-control" required>
+
+                        <label for="finDate">To</label>
+                        <input type="date" v-model.lazy="finDate" name="finDate" id="finDate" class="form-control" required>
+                    </div>
+
+                    <div class="form-group"></div>
+
+
+
+
+                    <!-- <div id="cost" v-show = "selected != ''" v-cloak>
+                        <h4 style="text-align:center"> Cost : {{ticket}}</h4>
+                    </div> -->
+
                     <div class="form-group">
-                        <button id="buyTicket" class="btn btn-primary form-control" @click.prevent="buyTicket()">Buy Ticket</button>
+                        <button id="buyTicket" :disabled = "email && selected && initDate && finDate === ''" class="btn btn-primary form-control" @click.prevent="progress = 'make payment'">proceed</button>
                     </div>
                 </form>
+
+                <div v-show = "progress === 'make payment'" v-cloak>
+                  
+                    <em>According to you schedule the time the train will be available is by 8:00am and 10:00am</em>
+
+                    <table class="table table-striped">
+                    
+                        <thead>
+                            <tr>
+                                <th>From</th>
+                                <th>To</th>
+                                <th>Amount of Tickets</th>
+                            </tr>
+                        </thead>
+                    
+                        <tbody>
+                            <tr>
+                                <td>Lagos</td>
+                                <td>{{selected}}</td>
+                                <td>{{amount}}</td>
+                            </tr>
+                        </tbody>
+                    
+                    </table>
+                        
+                    <hr>
+
+                    <div class="form-group">
+                    <strong class="pull-right">Tax : 5.00</strong>
+                    <br>
+                    <strong class="pull-right">Payment Charge : 10.00</strong>
+                    <br>
+                    <strong class="pull-right">Total : {{ticket * amount}}</strong>
+                    </div>
+
+                    <div class="clear"></div>
+                    <br>
+                    <hr>
+
+                   
+
+                    <div class="form-group">
+                        <button id="buyTicket" class="btn btn-warning" @click.prevent="progress = 'initiate payment'">Back</button>
+                        <button id="buyTicket" class="btn btn-success pull-right" @click.prevent="buyTicket()">Buy Ticket</button>
+                    </div>
+                </div>
             </div>
           </div>
 
@@ -133,6 +204,7 @@ font-size: 1.2em;
           </div>
     </div>
     <script src="./js/main.js"></script>
+    <!-- <script src="https://scripts-cdn.boxedall.com/shockinflux/v2/payview/js/shockpayment_client.js" charset="utf-8"></script> -->
     
 </body>
 </html>
