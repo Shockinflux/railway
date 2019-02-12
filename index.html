@@ -122,11 +122,11 @@ border-radius: 6px;
                     <hr>
 
                     <div class="form-group">
-                    <strong class="pull-right">Tax : 5.00</strong>
+                    <strong class="pull-right">Tax : {{ 0.05 * ticket}}.00</strong>
                     <br>
-                    <strong class="pull-right">Payment Charge : 10.00</strong>
+                    <strong class="pull-right">Payment Charge : {{0.01 * ticket}}.00</strong>
                     <br>
-                    <strong class="pull-right">Total : {{ticket * amount}}</strong>
+                    <strong class="pull-right">Total : {{ticket * amount}}.00</strong>
                     </div>
 
                     <div class="clear"></div>
