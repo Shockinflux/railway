@@ -7,7 +7,7 @@ let vm = new Vue({
     data : {
         selectedTo: "".toUpperCase(),
         selectedFrom : "".toUpperCase(),
-        ticket:250,
+        ticket:10,
         ref: "",
         transacRef: "",
         refPut : false,
@@ -40,10 +40,11 @@ let vm = new Vue({
         generate: function () {
             if(this.ref === this.transacRef && this.status == 1){
                 // console.log(this.ref);
-                this.refPut = true
+                this.refPut = true;
+                this.errRef = "";
             }else{
-                this.refPut = false
-                this.errRef = "Wrong Transaction ID"
+                this.refPut = false;
+                this.errRef = "Wrong Transaction ID";
             }
             
         },
@@ -64,15 +65,34 @@ let vm = new Vue({
     }
 
 })
+
+
+let userRef = JSON.parse(localStorage.getItem('transactionID'));
+console.log(userRef);
+
+
+if(userRef == null || userRef == 'undefined'){
+    localStorage.setItem('transactionID', JSON.stringify({}));
+}else{
+
+    if(userRef != {}){
+        vm.transacRef = userRef.ref;
+        vm.status = userRef.status;
+    }
+   
+    
+}
 shock_init("paybtn");
 
 function paymentCallback(res) {
 
     console.log(res);
     if(res.status == 1){
-        vm.paid = true;
+        // vm.paid = true;
         vm.transacRef = res.ref;
         vm.status = res.status
+
+        localStorage.setItem('transactionID',JSON.stringify({"ref":res.ref,"status":res.status}))
         setTimeout(() => {
             shock_close_dialog()
             vm.sucmessage = res.message;
@@ -81,7 +101,7 @@ function paymentCallback(res) {
     }else if(res.status == 2){
         setTimeout(() => {
             shock_close_dialog()
-            vm.paid = true;
+            // vm.paid = true;
 
             vm.errmessage = "Transaction Failed";
             vm.status = res.status
