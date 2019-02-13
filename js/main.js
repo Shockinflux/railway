@@ -75,9 +75,17 @@ if(userRef == null || userRef == 'undefined'){
     localStorage.setItem('transactionID', JSON.stringify({}));
 }else{
 
-    if(userRef != {}){
+    if (Object.keys(userRef).length > 0){
+        // console.log("okay");
+        
         vm.transacRef = userRef.ref;
         vm.status = userRef.status;
+    }else{
+
+        // console.log("tested");
+        
+        vm.transacRef = "";
+        vm.status = 0;
     }
    
     
