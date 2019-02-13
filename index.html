@@ -75,10 +75,10 @@ border-radius: 6px;
 
                     <div class="form-inline">
                         <label for="initDate">From</label>
-                        <input type="date" v-model.lazy="initDate" name="initDate" id="initDate" class="form-control" required>
+                        <input type="date" v-model="initDate" name="initDate" id="initDate" class="form-control" required>
 
                         <label for="finDate">To</label>
-                        <input type="date" v-model.lazy="finDate" name="finDate" id="finDate" class="form-control" required>
+                        <input type="date" v-model="finDate" name="finDate" id="finDate" class="form-control" required>
                     </div>
 
                     <div class="form-group"></div>
@@ -136,7 +136,7 @@ border-radius: 6px;
                    
 
                     <div class="form-group">
-                        <button id="buyTicket" class="btn btn-warning" @click.prevent="progress = 'initiate payment'">Back</button>
+                        <button id="buyTicket" class="btn btn-warning" @click.prevent="progress = 'initiate payment',paid = false">Back</button>
                         <button id="buyTicket" class="btn btn-success pull-right" @click.prevent="buyTicket()">Buy Ticket</button>
                     </div>
                 </div>

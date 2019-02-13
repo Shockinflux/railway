@@ -41,7 +41,11 @@ let vm = new Vue({
             if(this.email != '' && this.selected != ''){
                 this.paid = true
             }
-        }
+        },
+        // changeValues : function(){
+        //     this.progress = 'initiate payment';
+        //     this.paid = false;
+        // }
     }
 
 })
