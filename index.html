@@ -52,7 +52,7 @@ border-radius: 6px;
 
             </div>
 
-            <div class="col-md-4 col-sm-6 form">
+            <div class="col-md-5 col-sm-6 form">
                 <h3 style="text-align:center">Book your journey</h3>
                 <form action="" v-show = "progress === 'initiate payment'">
                     <div class="form-group">
@@ -62,7 +62,7 @@ border-radius: 6px;
                     </div>
 
                     <div class="form-inline">
-                        <label for="from">From</label>
+                        <!-- <label for="from">From</label> -->
                         <select v-model="selectedFrom" name="from" id="from" class="form-control" required>
                             <option disabled value="">From</option>
                             <option v-for="(location,index) in locations" :value="location.value">{{location.name}}</option>
@@ -71,7 +71,7 @@ border-radius: 6px;
                     <!-- </div>
 
                     <div class="form-inline"> -->
-                        <label for="to">To</label>
+                        <!-- <label for="to" class="">To</label> -->
                         <select v-model="selectedTo" name="to" id="to" class="form-control pull-right" required>
                             <option disabled value="">To</option>
                             <option v-for="(location,index) in locations" :value="location.value">{{location.name}}</option>
@@ -92,11 +92,11 @@ border-radius: 6px;
                     </div>
 
                     <div class="form-inline">
-                        <!-- <label for="initDate">From</label> -->
-                        <input type="date" v-model="initDate" name="initDate" id="initDate" class="form-control" required>
+                        <label for="initDate">Leaving</label>
+                        <input type="date" v-model="initDate" name="initDate" id="initDate" class="form-control" value="Today" required>
 
-                        <!-- <label for="finDate">To</label> -->
-                        <input type="date" v-model="finDate" name="finDate" id="finDate" class="form-control" required>
+                        <label for="finDate">Returning</label>
+                        <input type="date" v-model="finDate" name="finDate" id="finDate" class="form-control" value="Return Date" required>
                     </div>
 
                     <div class="form-group"></div>
@@ -182,7 +182,7 @@ border-radius: 6px;
                 </div>
             </div>
 
-            <div class="col-md-2"></div>
+            <!-- <div class="col-md-2"></div> -->
           </div>
 
           <div class="clear"></div>
