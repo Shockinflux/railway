@@ -36,7 +36,9 @@ body{
     margin-top: 20px;
 } */
 
-
+.radio{
+    margin-right:10px!important;
+}
 .clear{
     clear: both;
 }

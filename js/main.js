@@ -5,13 +5,15 @@
 let vm = new Vue({
     el : "#rail",
     data : {
-        selected : "".toUpperCase(),
+        selectedTo: "".toUpperCase(),
+        selectedFrom : "".toUpperCase(),
         ticket:1000,
         ref: "",
         refPut : false,
         paid:false,
         email:'',
-        amount : 1,
+        adult: 1,
+        children : 0,
         locations: [{
                 name: "Abule Egba",
                 value: "Abule Egba",
@@ -26,6 +28,7 @@ let vm = new Vue({
         progress : 'initiate payment',
         initDate: new Date().toDateString(),
         finDate: new Date().toDateString(),
+        picked : '',
     },
     methods:{
         generate: function () {
