@@ -68,7 +68,7 @@ let vm = new Vue({
 
 
 let userRef = JSON.parse(localStorage.getItem('transactionID'));
-console.log(userRef);
+// console.log(userRef);
 
 
 if(userRef == null || userRef == 'undefined'){
@@ -86,7 +86,7 @@ shock_init("paybtn");
 
 function paymentCallback(res) {
 
-    console.log(res);
+    // console.log(res);
     if(res.status == 1){
         // vm.paid = true;
         vm.transacRef = res.ref;
