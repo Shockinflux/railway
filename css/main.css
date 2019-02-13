@@ -57,7 +57,7 @@ body{
     clear: both !important;
 }
 #paySec{
-    height: 85vh;
+    height: 100vh;
     background: linear-gradient(45deg, #37e6f8, #001a25);
 
     /* background-color: black !important; */

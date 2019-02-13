@@ -47,11 +47,12 @@ border-radius: 6px;
                     posuere dis? Vulputate at dapibus ut conubia aptent vel dictum ornare volutpat dis cursus sodales. Dignissim.
                 </p>    
                 </div>
+                <div class="clear"></div>
                 
 
             </div>
 
-            <div class="col-md-4 col-sm-4 form">
+            <div class="col-md-4 col-sm-6 form">
                 <h3 style="text-align:center">Book your journey</h3>
                 <form action="" v-show = "progress === 'initiate payment'">
                     <div class="form-group">
@@ -61,7 +62,7 @@ border-radius: 6px;
                     </div>
 
                     <div class="form-inline">
-                        <!-- <label for="from">From</label> -->
+                        <label for="from">From</label>
                         <select v-model="selectedFrom" name="from" id="from" class="form-control" required>
                             <option disabled value="">From</option>
                             <option v-for="(location,index) in locations" :value="location.value">{{location.name}}</option>
@@ -70,7 +71,7 @@ border-radius: 6px;
                     <!-- </div>
 
                     <div class="form-inline"> -->
-                        <!-- <label for="to">To</label> -->
+                        <label for="to">To</label>
                         <select v-model="selectedTo" name="to" id="to" class="form-control pull-right" required>
                             <option disabled value="">To</option>
                             <option v-for="(location,index) in locations" :value="location.value">{{location.name}}</option>
@@ -180,7 +181,11 @@ border-radius: 6px;
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-2"></div>
           </div>
+
+          <div class="clear"></div>
 
           <div class="row" id="receiptSec">
 
