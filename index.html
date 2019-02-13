@@ -72,6 +72,8 @@ border-radius: 6px;
 
                     <div class="form-inline"> -->
                         <!-- <label for="to" class="">To</label> -->
+                        <div class="form-group"></div>
+                        
                         <select v-model="selectedTo" name="to" id="to" class="form-control pull-right" required>
                             <option disabled value="">To</option>
                             <option v-for="(location,index) in locations" :value="location.value">{{location.name}}</option>
