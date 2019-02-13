@@ -30,6 +30,9 @@ let vm = new Vue({
         initDate: new Date().toDateString(),
         finDate: new Date().toDateString(),
         picked : '',
+        sucmessage: '',
+        errmessage : '',
+        instruct : '',
     },
     methods:{
         generate: function () {
@@ -68,10 +71,13 @@ function paymentCallback(res) {
         vm.transacRef = res.ref;
         setTimeout(() => {
             shock_close_dialog()
+            vm.sucmessage = res.message;
+            vm.instruct = "Check mail for Transaction ID";
         }, 3000);
     }else if(res.status == 2){
         setTimeout(() => {
             shock_close_dialog()
+            vm.errmessage = "Transaction Failed";
         }, 3000);
     }
 

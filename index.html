@@ -171,6 +171,12 @@ border-radius: 6px;
                             Make Payment
                         </button>
                     </div>
+
+                    <div class="form-group">
+                        <h5 class="text-success" v-show="sucmessage != ''">{{sucmessage}}</h5>
+                        <h5 class="text-danger" v-show="errmessage != ''">{{errmessage}}</h5>
+                        <h5 class="text-primary" v-show="instruct != ''">{{instruct}}</h5>
+                    </div>
                 </div>
             </div>
           </div>
