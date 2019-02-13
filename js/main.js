@@ -9,10 +9,10 @@ let vm = new Vue({
         selectedFrom : "".toUpperCase(),
         ticket:250,
         ref: "",
-        transacRef:'',
+        transacRef: "",
         refPut : false,
-        paid:false,
-        email:'',
+        paid:true,
+        email:"",
         adult: 1,
         children : 0,
         locations: [{
@@ -29,18 +29,21 @@ let vm = new Vue({
         progress : 'initiate payment',
         initDate: new Date().toDateString(),
         finDate: new Date().toDateString(),
-        picked : '',
-        sucmessage: '',
-        errmessage : '',
-        instruct : '',
+        picked : "",
+        sucmessage: "",
+        errmessage: "",
+        errRef : "",
+        instruct : "",
+        status : 0,
     },
     methods:{
         generate: function () {
-            if(this.ref === this.transacRef){
+            if(this.ref === this.transacRef && this.status == 1){
                 // console.log(this.ref);
                 this.refPut = true
             }else{
                 this.refPut = false
+                this.errRef = "Wrong Transaction ID"
             }
             
         },
@@ -69,6 +72,7 @@ function paymentCallback(res) {
     if(res.status == 1){
         vm.paid = true;
         vm.transacRef = res.ref;
+        vm.status = res.status
         setTimeout(() => {
             shock_close_dialog()
             vm.sucmessage = res.message;
@@ -77,7 +81,10 @@ function paymentCallback(res) {
     }else if(res.status == 2){
         setTimeout(() => {
             shock_close_dialog()
+            vm.paid = true;
+
             vm.errmessage = "Transaction Failed";
+            vm.status = res.status
         }, 3000);
     }
 

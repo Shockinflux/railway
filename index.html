@@ -185,7 +185,9 @@ border-radius: 6px;
 
             <div class="col-md-4 col-sm-4" id="genReceipt">
                 <h4 style="text-align:center;color:#fff">Generate Receipt</h4>
+                <h6 class="text-danger text-center" v-show="errRef != ''">{{errRef}}</h6>
                 <form action="">
+                    
                     <div class="form-group">
                         <label for="ref" style="color:#fff">Transaction ID</label>
                         <input type="text" name="ref" id="ref" v-model="ref" class="form-control" required>
