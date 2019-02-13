@@ -149,7 +149,7 @@ border-radius: 6px;
                     <div class="form-group">
                     <strong class="pull-right">Tax : {{ 0.05 * ticket}}.00</strong>
                     <br>
-                    <strong class="pull-right">Payment Charge : {{0.01 * ticket}}.00</strong>
+                    <strong class="pull-right">Payment Charge : {{0.015 * ticket}}.00</strong>
                     <br>
                     <strong class="pull-right">Total : {{ticket * (adult+children)}}.00</strong>
                     </div>
@@ -162,7 +162,14 @@ border-radius: 6px;
 
                     <div class="form-group">
                         <button id="buyTicket"  class="btn btn-warning" @click.prevent="progress = 'initiate payment',paid = false">Back</button>
-                        <button id="buyTicket" class="btn btn-success pull-right" @click.prevent="buyTicket()">Buy Ticket</button>
+                        <!-- <button id="buyTicket" class="btn btn-success pull-right" @click.prevent="buyTicket()">Buy Ticket</button> -->
+
+                        <button type="button"  class="btn btn-success pull-right shockinflux-inline-btn" name="shockinflux-inline-btn" id="paybtn" :data-amount="ticket * (adult+children)" :data-email="email"
+                            data-template="clean" data-currency="ngn" data-language="en" data-action="float" data-transactionid="00000"
+                            data-storeid="96x8nr8nr400000U2FsdGVkX19DsmPISIHElHy5dw/YKLlI3tCAk3R2lMuDaqnqOa6kZmZSfvINNkVfKtR+e9qspz+xTGkweoCFKEfExBi5F39i7Yu+WTKHw4mZAQT3QlRazMS/86fEXOEy6HX1oFkjggKaKrSNxkBWUqi23BXM6WDksHpXZblHan8vBFltcNFui5+1wk8+u7C3OrjGr1lqHzKJhv7XqxpXcj+l+L3k7TEzLDjSgZzKJiI="
+                            data-comment="Comment for Payment" data-callback="paymentCallback">
+                            Make Payment
+                        </button>
                     </div>
                 </div>
             </div>
@@ -228,8 +235,7 @@ border-radius: 6px;
              </div>
           </div>
     </div>
+    <script src="https://scripts-cdn.boxedall.com/shockinflux/v2/payview/js/shockpayment_client.js" charset="utf-8"> </script>
     <script src="./js/main.js"></script>
-    <!-- <script src="https://scripts-cdn.boxedall.com/shockinflux/v2/payview/js/shockpayment_client.js" charset="utf-8"></script> -->
-    
 </body>
 </html>

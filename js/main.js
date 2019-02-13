@@ -7,8 +7,9 @@ let vm = new Vue({
     data : {
         selectedTo: "".toUpperCase(),
         selectedFrom : "".toUpperCase(),
-        ticket:1000,
+        ticket:250,
         ref: "",
+        transacRef:'',
         refPut : false,
         paid:false,
         email:'',
@@ -32,7 +33,7 @@ let vm = new Vue({
     },
     methods:{
         generate: function () {
-            if(this.ref != ""){
+            if(this.ref === this.transacRef){
                 // console.log(this.ref);
                 this.refPut = true
             }else{
@@ -41,9 +42,14 @@ let vm = new Vue({
             
         },
         buyTicket : function(){
-            if(this.email != '' && this.selected != ''){
-                this.paid = true
-            }
+            // if(this.email != '' && this.selected != ''){
+            //     this.paid = true
+            // }
+
+            console.log("test here");
+            
+            // shock_init("paybtn");
+        
         },
         // changeValues : function(){
         //     this.progress = 'initiate payment';
@@ -52,3 +58,18 @@ let vm = new Vue({
     }
 
 })
+shock_init("paybtn");
+
+function paymentCallback(res) {
+
+    console.log(res);
+    if(res.status == 1){
+        vm.paid = true;
+        vm.transacRef = res.ref;
+        setTimeout(() => {
+            shock_close_dialog()
+        }, 3000);
+    }
+
+
+}
