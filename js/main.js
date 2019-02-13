@@ -69,6 +69,10 @@ function paymentCallback(res) {
         setTimeout(() => {
             shock_close_dialog()
         }, 3000);
+    }else if(res.status == 2){
+        setTimeout(() => {
+            shock_close_dialog()
+        }, 3000);
     }
 
 
